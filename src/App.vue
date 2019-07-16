@@ -1,6 +1,7 @@
 <template>
-  <div id="obj-model">
-    <model-obj :src="obj" :mtl="mtl"></model-obj>
+  <div id="obj-model" @click="stopped = true">
+    {{stopped}}
+    <model-obj :src="obj" :mtl="mtl" :rotation="rotation" @on-load="onLoad"></model-obj>
   </div>
 </template>
 
@@ -22,6 +23,24 @@ export default {
         return ''
       }
     }
+  },
+   data: () => ({
+    stopped: false,
+    rotation: {
+        x: 0,
+        y: -Math.PI / 2,
+        z: 0
+    }
+  }),
+  methods: {
+      onLoad () {
+          this.rotate();
+      },
+      rotate () {
+        if(this.stopped) return
+          this.rotation.y += 0.01;
+          requestAnimationFrame( this.rotate );
+      }
   }
 };
 </script>
