@@ -1,6 +1,5 @@
 <template>
   <div id="obj-model" @click="stopped = true">
-    {{stopped}}
     <model-obj :src="obj" :mtl="mtl" :rotation="rotation" @on-load="onLoad"></model-obj>
   </div>
 </template>
