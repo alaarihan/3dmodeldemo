@@ -1,26 +1,32 @@
 <template>
-  <div id="app">
-    <threeDModel/>
+  <div id="obj-model">
+    <model-obj :src="obj" :mtl="mtl"></model-obj>
   </div>
 </template>
 
 <script>
-import threeDModel from "./components/threeDModel";
-
+import { ModelObj } from "vue-3d-model";
 export default {
-  name: "App",
-  components: {
-    threeDModel
+  name: "ObjModel",
+  components: { ModelObj },
+  props: {
+    obj: {
+      type: String,
+      default() {
+        return ''
+      }
+    },
+    mtl: {
+      type: String,
+      default() {
+        return ''
+      }
+    }
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style scoped>
+  #obj-model{
+    cursor: move;
+  }
 </style>
