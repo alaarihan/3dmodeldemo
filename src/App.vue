@@ -1,5 +1,5 @@
 <template>
-  <div id="obj-model" @click="stopped = true">
+  <div id="obj-model" @mousedown="stopped = true">
     <model-obj :src="obj" :mtl="mtl" :rotation="rotation" @on-load="onLoad"></model-obj>
   </div>
 </template>
