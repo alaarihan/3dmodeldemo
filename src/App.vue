@@ -1,7 +1,7 @@
 <template>
   <div id="obj-model" @mousedown="stopped = true">
     <loading :active.sync="isLoading" :is-full-page="false"></loading>
-    <model-obj :src="obj" :mtl="mtl" :rotation="rotation" @on-load="onLoad" :controllable="false"></model-obj>
+    <model-obj :src="obj" :mtl="mtl" :rotation="rotation" @on-load="onLoad"></model-obj>
   </div>
 </template>
 
